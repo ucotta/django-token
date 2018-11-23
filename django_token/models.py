@@ -12,7 +12,8 @@ class Token(models.Model):
     An access token that is associated with a user.  This is essentially the same as the token model from Django REST Framework
     """
     key = models.CharField(max_length=40, primary_key=True)
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name="token", on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="token", on_delete=models.CASCADE)
+
     created = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
