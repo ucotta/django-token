@@ -6,7 +6,7 @@ User = get_user_model()
 
 
 class TokenBackend(object):
-    def authenticate(self, token=None):
+    def authenticate(self, request=None, token=None):
         """
         Try to find a user with the given token
         """
